@@ -44,6 +44,7 @@ import timber.log.Timber
  */
 class TasksFragment : Fragment() {
 
+    // 뷰모델 설정
     private val viewModel by viewModels<TasksViewModel> { getViewModelFactory() }
 
     private val args: TasksFragmentArgs by navArgs()

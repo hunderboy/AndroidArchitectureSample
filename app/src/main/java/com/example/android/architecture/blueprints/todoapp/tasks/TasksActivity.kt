@@ -39,15 +39,26 @@ class TasksActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tasks_act)
+        // 네비게이션 드로어 설정
         setupNavigationDrawer()
+        // 액션바 설정
         setSupportActionBar(findViewById(R.id.toolbar))
 
+
+        // navController 프래그먼트 할당
         val navController: NavController = findNavController(R.id.nav_host_fragment)
+
+
+        // AppBar 구성
         appBarConfiguration =
+            // task 화면, statistics 화면
             AppBarConfiguration.Builder(R.id.tasks_fragment_dest, R.id.statistics_fragment_dest)
                 .setDrawerLayout(drawerLayout)
                 .build()
+        // 액션바에 navController 설정
         setupActionBarWithNavController(navController, appBarConfiguration)
+
+        // 네비게이션 뷰에 navController 세팅
         findViewById<NavigationView>(R.id.nav_view)
             .setupWithNavController(navController)
     }
@@ -57,6 +68,7 @@ class TasksActivity : AppCompatActivity() {
             super.onSupportNavigateUp()
     }
 
+    // 네비게이션 드로어 설정
     private fun setupNavigationDrawer() {
         drawerLayout = (findViewById<DrawerLayout>(R.id.drawer_layout))
             .apply {
